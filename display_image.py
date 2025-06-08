@@ -17,6 +17,6 @@ else:
     cv2.waitKey(5000)
     # Wait for 5000 milliseconds (5 seconds) before closing the window
     # if you want to close the window manually, you can use 0
-    cv2.destroyAllWindows()
+    cv2.destroyAllWindows(0)
     # Close the image window
     print("Image displayed successfully.")
