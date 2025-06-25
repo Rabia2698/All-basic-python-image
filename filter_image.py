@@ -1,10 +1,11 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
 
 def blur_image(image):
     # Gaussian blur
-    return cv2.GaussianBlur(image, (7, 7), 0)
+    return cv2.GaussianBlur(image, (9, 9), 0)
 
 def sharpen_image(image):
     # Sharpening kernel
@@ -18,7 +19,7 @@ def edge_image(image):
     return cv2.Canny(image, 100, 200)
 
 if __name__ == "__main__":
-    img_path = r'C:\Users\HP\Desktop\Learn\Python Image\All-basic-python-image\Input_image\Image_1.jpg' 
+    img_path = r'C:\Users\HP\Desktop\Learn\Python Image\All-basic-python-image\Input_image\1.png' 
     image = cv2.imread(img_path)
 
     
@@ -29,7 +30,7 @@ if __name__ == "__main__":
     
     
 
-    blurred = blur_image(image)
+    blurred = blur_image(image) 
     sharpened = sharpen_image(image)
     edges = edge_image(image)
 
@@ -49,6 +50,7 @@ if __name__ == "__main__":
     plt.subplot(2, 2, 2)
     plt.title('Blurred Image')
     plt.imshow(cv2.cvtColor(blurred, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for display
+    plt.imsave("blurred_image.jpg", blurred)  # Save the blurred image
     plt.axis('off')
 
     plt.subplot(2, 2, 3)
